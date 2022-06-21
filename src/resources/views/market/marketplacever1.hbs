@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+
+	<!--meta responsiv-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!--jquery quan trọng-->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+	<!--Icon--> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!--link script bootstrap 5 => Chuyển động slide-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="css/market.css"/>
+
+	<script src="https://unpkg.com/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <!--module đo kích thước màn hỉnh jquery đoạn dưới có hàm r , lặp hàm  -->
+{{!-- <div id="d1" class="sticky-top"style="top:30%;left:30%;position:fixed;color:black"></div> --}}
+
+<!--header-->
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary sticky-top" style="width:105%">
+<ul class="navbar-nav mr-auto"style="margin-left:95px">
+    <li class="nav-item active">
+     
+      <!--căn phải chọn thằng mà căn-->
+       <a class="navbar-brand" href="/"style="font-size:30px;color:white;font-family:'Macondo';">@SMCS</a>
+    </li>
+   
+   
+    
+  </ul>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+  </ul>
+
+   <form class="form-inline my-2 my-lg-0"style="margin-right:18%">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"style="color:white;border-color:#B0E0E6;margin-right:5px">
+        <i class="fa-solid fa-magnifying-glass"style="transform:rotate(90deg);"></i>
+      </button>
+    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm khóa học, sản phẩm" aria-label="Search"style="width:400px">
+    <button type="button" class="btn btn-success"style="margin-left:120px"><i class="fa-solid fa-registered"style="margin-right:2px"></i>Đăng ký </button>
+    <button type="button" class="btn btn-danger"style="margin-left:10px"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Đăng nhập</button>
+  </form>
+
+  
+</div>
+</nav>
+
+
+<nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light sticky-top"style="width:105%">  <!--id quan trọng để tham chiếu dữ liệu-->
+<ul class="navbar-nav mr-auto">
+     <div class="menu-bar-item-header">
+        <span></span>
+      </div>
+              <!--menu-item-->
+      <div class="menu-items">
+                  <ul>
+                      <li class="menu-item"style="margin-top:40px">
+                        <i class="fa fa-language"style="display:inline-block"></i>
+                        <a href=""style="display:inline-block">Ngoại ngữ</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-line-chart"></i>
+                        <a href="">Marketing</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-desktop"></i>
+                        <a href="">Tin học văn phòng</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-paint-brush"></i>
+                        <a href="">Thiết kế</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-rocket"></i>
+                        <a href="">Kinh Doanh khởi nghiệp</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-child"></i>
+                        <a href="">Kỹ năng mềm</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-shopping-cart"></i>
+                        <a href="">Bán hàng</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-code"></i>
+                        <a href="">CNTT</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-heartbeat"></i>
+                        <a href="">Sức khỏe</a>
+                      </li>
+                      <li class="menu-item">
+                        <i class="fa fa-cutlery"></i>
+                        <a href="">Phong cách sống</a>
+                      </li>
+                      
+                  </ul>
+       </div>          
+          
+          <!--chuyển động menu-bar-item-->
+    <script>
+            // phím biến đổi menuBar cái icon
+            const menuBar=document.querySelector(".menu-bar-item-header");  // chọn thằng menu bar 
+            menuBar.addEventListener("click",function(){  //lắng nghe sự kiện click 
+            menuBar.classList.toggle("active")  // click vào khởi động class active
+            document.querySelector(".menu-items").classList.toggle("active"); // chọn và gán class active cho nó
+            })
+        
+    </script>
+    
+    <li class="nav-item dropdown"style="margin-left:50px;margin-top:15px">
+      <a class="nav-link dropdown-toggle"style="margin-top:15px;padding:-100px;" href="/myorder" >
+        My odders
+      </a>
+    </li>
+</ul>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+  </ul>
+
+<form class="form-inline my-2 my-lg-0"style="margin-right:31.8%"> 
+   <li class="nav-item dropdown" style="margin-left:35%">
+      <a class="btn btn-outline-success my-2 my-sm-0" class="nav-link dropdown-toggle"style="margin-top:2px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-file-invoice"></i>
+        Account 
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown"data-toggle="colapse">
+        <a class="dropdown-item"id="account" >Business</a>
+      </div>
+    </li>
+</form>
+</nav>
+
+
+<!--slide-->
+<div class="row">
+ <!--Có thằng script ở dưới để điều chỉnh-->
+<div class="col-lg-3" id="element"style="display:block;box-shadow: 2px 2px 2px #999999;border-radius: 10px;width:23%;margin-left:7.5%;height:450px;margin-top:19px">
+    <li class="nav-item dropdown"id="openlistmonhoc" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fa fa-language"></i>
+         Ngoại Ngữ
+        <div id="listmonhoc" class="sticky-top" style="background-color:white;position:absolute;top:-10px;left:335px;width:350px;height:450px;box-shadow: 2px 2px 2px #999999">
+            <div id="monhoc"style="margin-top:10px">Tiếng Anh </div>
+            <div id="monhoc"style="margin-top:10px">Tiếng Nhật </div>
+            <div id="monhoc"style="margin-top:10px">Tiếng Trung </div>
+            <div id="monhoc"style="margin-top:10px">Tiếng Hàn </div>
+            <div id="monhoc"style="margin-top:10px">Tiếng Pháp </div>
+        </div>
+        
+      </a>
+      
+      <!--form-->
+      <!--dùng sticky-top để đè lên slide-->
+    </li>
+    <li class="nav-item dropdown"id="openlistmonhoc2" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-line-chart"></i>
+        Marketing
+        
+        
+      </a>
+      
+
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-desktop"></i>
+        Tin học văn phòng
+      </a>
+     
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-paint-brush"></i>
+        Thiết kế
+      </a>
+      
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-rocket"></i>
+        Kinh doanh khởi nghiệp
+      </a>
+     
+    </li>
+     <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-child"></i>
+        Kỹ năng mềm
+      </a>
+      
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-shopping-cart"></i>
+        Bán hàng
+      </a>
+      
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-code"></i>
+        CNTT
+      </a>
+      
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-heartbeat"></i>
+        Sức khỏe
+      </a>
+     
+    </li>
+    <li class="nav-item dropdown" style="display:block;margin-top:10px">
+      <a style="margin-top:2px;color:black;text-decoration:none" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-cutlery"></i>
+        Phong cách sống 
+      </a>
+      
+    </li>
+    <!--Hover-->
+  
+  
+</div>  
+<div id="show_slide"class="col-sm-12 col-lg-7" style="height:500px">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img style="height:450px;margin-top:20px;border-radius:10px" src="https://cdn.pixabay.com/photo/2018/01/17/07/06/laptop-3087585_960_720.jpg" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img style="height:450px;margin-top:20px;border-radius:10px" src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_960_720.jpg" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img style="height:450px;margin-top:20px;border-radius:10px"src="https://cdn.pixabay.com/photo/2015/05/31/10/51/technology-791029_960_720.jpg" class="d-block w-100">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</div>
+ <!--Đối tượng chèn lên slide-->
+ <div id="decorateslide">
+    <p style="text-align:center;color:white;font-size:35px">Change your way</p>
+    <button type="button" class="btn btn-primary"style="margin-left:71px">Get Started</button>
+ </div>
+</div>
+
+
+<!--điều chỉnh hiển thị hay không hiển thị theo sự thay đổi kích thước-->
+<script>
+  // user không mấy khi thay đổi kích thước, đăng nhập vào phát là set giao diện luôn
+    var x=$(window).width();
+         var y=$(window).height();
+         
+         if(Number(x)<1500){
+            document.getElementById("element").style.display = 'none';
+            document.getElementById("decorateslide").style.display = 'none';
+         }
+         if(Number(x)>=1500){
+            document.getElementById("element").style.display = 'inline-block';
+            document.getElementById("decorateslide").style.display="inline-block"
+         }
+    $(document).ready(function(e){
+        $(window).resize(ResizeHappend);
+    })
+     function ResizeHappend(){
+         var x=$(window).width();
+         var y=$(window).height();
+         
+         if(Number(x)<1500){
+            document.getElementById("element").style.display = 'none';
+            document.getElementById("decorateslide").style.display = 'none';
+         }
+         if(Number(x)>=1500){
+            document.getElementById("element").style.display = 'inline-block';
+            document.getElementById("decorateslide").style.display="inline-block"
+         }
+     }
+</script>
+<!---->
+ 
+    
+    <div class="container"style="margin-left:9%">
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+
+                <h2 id="scrollspyHeading1"style="margin-top:5%;margin-bottom:2.5%;margin-left:-3.5%">Business</h2>
+                <div id="product1"class="row">
+                </div>
+                <hr/>
+          </div>     
+    </div>
+
+  <!--CSS cho các thẻ lấy ra từ blockchain-->
+  <style>
+    /*Xuất thông tin*/
+    .card:hover{ background-color: #DCDCDC;
+      display:block
+    }
+    .thongtin{display:none;
+    position:absolute;
+    background-color: white;
+    border-radius: 10px;
+    margin-top:-100px;
+    top:-120%;
+    box-shadow: 5px 5px 5px #999999;
+    width:400px;
+    height:28rem;
+    margin-left:102%;
+    padding:15px;
+    }  /*css được thông tin gen ra từ blockchain*/
+    .card:hover .thongtin{display:block;margin-top:2px}
+  </style>
+
+<p id="data_db"style="display:none">{{data_postgre_string}}</p>
+<!--code web3-->
+<script>
+            // lấy abi và address dựa trên link_access
+const data_postgre =JSON.parse(document.getElementById('data_db').innerText); // chuyển gói dữ liệu từ table thành object 
+const data_postgre_address=data_postgre.address;
+const data_postgre_abi =data_postgre.abi.abi;
+// tạo element cho vòng for 
+const createElementFromString = (string) => {
+    const el = document.createElement('div'); // tạo ra thẻ div 
+    el.innerHTML = string;  // gán giá trị 
+    return el.firstChild;  // trả về con đầu tiên 
+};
+
+
+ const web3= new Web3(
+    Web3.givenProvider|| 'HTTP://127.0.0.1:7545'
+);
+
+
+// các biến cần dùng 
+let account;
+const accountEl=document.getElementById('account');// account 
+// display marketplace 
+const product1=document.getElementById('product1');
+
+
+
+// contract 
+const contract_blockchain_course = new web3.eth.Contract(data_postgre_abi,data_postgre_address);
+
+const loadProvider = async () => {
+    //await dùng gọi hàm detect
+    const provider = await detectEthereumProvider();
+    if (provider) { // nếu có người đăng nhập thì khởi động hàm điền thông tin 
+        provider.request({
+            method: "eth_requestAccounts"
+        }) // website trả ra yêu cầu đăng nhập metamask
+
+        //setWeb3Api({
+            //web3: new Web3(provider), // tạo nên 1 đối tượng web 3 để đăng nhập 
+            //provider
+        //})
+    } else {
+        console.error("please, install metamask")
+    }
+}
+
+
+
+// hiển thị 
+// hiển thị thông tin
+const DisplayproductMarketplace = async ()=>{
+    
+    product1.innerText='';
+   for(let i=0; i<4;i++){ // sẽ sửa sau
+       // kết nối trực tiếp không đơn giản là lôi dữ liệu lên 
+     const product_link_course = await contract_blockchain_course.methods.link_course().call();
+     const product_link_image = await contract_blockchain_course.methods.link_image().call();
+     const product_name_product = await contract_blockchain_course.methods.name_product().call();
+     const product_description = await contract_blockchain_course.methods.description().call();
+     const product_name_author = await contract_blockchain_course.methods.name_author().call();
+     const product_price = await contract_blockchain_course.methods.price().call();
+     
+     const productEl = createElementFromString(  // tạo ra thẻ div bao ngoài dùng inner để tạo thẻ
+          // dấu ` cẩn thận 
+          // 1 e18 là đổi ra eth
+     `<div class='col'style="cursor: pointer;margin-left:-3.5%">
+         <div class="ticket card" style="width: 12rem;">
+             <img src=${product_link_image} class="card-img-top" alt="...">
+             <div class="thongtin sticky-top" id="thongtinhanghoa"> <!--sticky-top ghi đè-->
+              <p style="background-color:#90EE90;text-align:center;border-radius:5px">Imformation</p>
+              <p style="display:inline-block"><p style="font-weight: 700 !important;display:inline-block">Description:</p> ${product_description}</p>
+              
+                 <a href="/detail/${product_link_course}" style="text-decoration:none;color:white">
+                 <button type="button" class="btn btn-primary"style="width:100%;margin-top:1%">
+                  <i class="fa-solid fa-eye"></i>
+                  View
+                  </button>
+                 </a>
+              
+            </div>
+            <div class="card-body">
+               <h5 class="card-title">${product_name_product}</h5>
+                 <div>
+                    <p style="display:inline-block;font-size:12px">${product_name_author}</p>
+                    <p class="card-text" style="display:inline-block;font-size:14px;margin-left:25px;font-weight:500">${
+                      product_price
+                    } Eth</p>
+                 </div>
+                 <a href="/detail/${product_link_course}" style="text-decoration:none;color:white">
+                  <button type="button" class="btn btn-danger"style="width:100%"><i class="fa-solid fa-square-info"style="margin-right:10px"></i>Info</button>
+                 <a/></div>
+           </div>
+           
+         </div>
+         `
+       );
+      
+         // đang lỗi phần hiện tượng click vào báo lỗi phí
+      
+         product1.appendChild(productEl);
+    }
+
+    // phân loại front-end ;chỉnh cho thằng cuối 
+     
+     const product_link_course_ft = await contract_blockchain_course.methods.link_course().call();
+     const product_link_image_ft = await contract_blockchain_course.methods.link_image().call();
+     const product_name_product_ft = await contract_blockchain_course.methods.name_product().call();
+     const product_description_ft = await contract_blockchain_course.methods.description().call();
+     const product_name_author_ft = await contract_blockchain_course.methods.name_author().call();
+     const product_price_ft = await contract_blockchain_course.methods.price().call();
+     
+     const productElft1 = createElementFromString(  // tạo ra thẻ div bao ngoài dùng inner để tạo thẻ
+          // dấu ` cẩn thận 
+          // 1 e18 là đổi ra eth
+     `<div class='col'style="cursor: pointer;margin-left:-3.5%">
+         <div class="ticket card" style="width: 12rem;">
+             <img src=${product_link_image_ft} class="card-img-top" alt="...">
+             <div class="thongtin sticky-top" id="thongtinhanghoa" style="margin-left:-200% !important"> <!--sticky-top ghi đè-->
+              <p style="background-color:#90EE90;text-align:center;border-radius:5px">Imformation</p>
+              <p style="display:inline-block"><p style="font-weight: 700 !important;display:inline-block">Description:</p> ${product_description_ft}</p>
+             
+               <button type="button" class="btn btn-primary"style="width:100%">
+                 <a href="/detail/${product_link_course_ft}" style="text-decoration:none;color:white">
+                  <i class="fa-solid fa-eye"></i>
+                  View
+                 </a>
+              </button>
+            </div>
+            <div class="card-body">
+               <h5 class="card-title">${product_name_product_ft}</h5>
+               <div>
+                    <p style="display:inline-block;font-size:12px">${product_name_author_ft}</p>
+                    <p class="card-text" style="display:inline-block;font-size:14px;margin-left:25px;font-weight:500">${
+                      product_price_ft
+                    } Eth</p>
+               </div>
+                <a href="/detail/${product_link_course_ft}" style="text-decoration:none;color:white">
+                  <button type="button" class="btn btn-danger"style="width:100%"><i class="fa-solid fa-square-info"style="margin-right:10px"></i>Info</button>
+                <a/>
+              </div>
+           </div>
+           
+         </div>
+         `
+       );
+      
+         // đang lỗi phần hiện tượng click vào báo lỗi phí
+   
+     product1.appendChild(productElft1);
+
+}
+
+
+const main = async () => {
+    loadProvider(); // có thằng này mới có những thằng sau 
+    const accounts = await window.ethereum.request({
+            method: 'eth_requestAccounts'
+        })
+        .catch((e) => {
+            console.error(e.message)
+            return
+        }) // xuất thông tin để lấy account
+	console.log(accounts);
+    account = accounts[0]; // account đã được khai báo từ trước để phục vụ cho buyticket; và nhiều hàm được gọi tới cũng dùng thằng này
+
+    // ajax lấy account chuyển vào controller 
+    $.ajax({
+        url: `/take_account`,
+        method: 'POST',
+		data: JSON.stringify({
+            acc: account // tên cập nhật 
+        }),
+		contentType: "application/json; charset=utf-8", // chuyển thành string 
+		traditional: true,
+        success: function(response) { // nếu thành công thì trả ra thông báo
+            console.log(response);
+        }
+    });
+
+    accountEl.innerText = account; // cài cho giá trị của thẳng html hiển thị account
+    await DisplayproductMarketplace(); // lấy account ở trên 
+}
+main();
+</script>
+
+ <h2 class="gain_your_pupose_title">CHINH PHỤC MỤC TIÊU CỦA BẠN</h2>
+  <div class="row gain_your_pupose_row">
+      <div class="col-sm-12 col-lg-5"id="textimage">
+          <img id="textimage"class="gain_your_pupose_title_img1"src="https://i.imgur.com/eQqdvkf.png"/>
+          <div class="gain_your_pupose_content1">
+            <!--inline-block giúp cùng dòng-->
+            <div class="gain_your_pupose_content1_1">
+              <img src="https://unica.vn/media/images/icon-ct-2.png"/>
+              <h5>Học đầu tư </h5>
+            </div>
+          </div>
+        </div>
+   
+
+
+    <div class="col-sm-12 col-lg-5"id="textimage"style="margin-left:5%">
+      <img id="textimage"class="gain_your_pupose_title_img1"src="https://cms.unica.vn/upload/images/062122_combo-digital-marketing_thumb.jpg"/>
+      <div class="gain_your_pupose_content1">
+        <!--inline-block giúp cùng dòng-->
+        <div class="gain_your_pupose_content1_1">
+          <img src="https://unica.vn/media/images/icon-ct-2.png"/>
+          <h5>Combo Marketing Online</h5>
+        </div>
+      </div>
+    </div>
+    <!--css thẻ div-->
+    <style>
+          #textimage:hover{
+            box-shadow: 15px 15px 15px #87CEFA;
+            border-radius:10px;
+            color:red;
+          }
+    </style>
+  </div>
+  <button class="btn btn-primary next_content"style="margin-top:4%">XEM TIẾP</button>
+<!--list_service-->
+  <div class="row list_service_row">
+
+    <div class="col-sm-4 col-lg-2 list_service_content_1"id="textimage2">
+      <i class="fa fa-language"></i>
+      <p >Ngoại Ngữ</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-line-chart"></i>
+      <p >Marketing</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-desktop"></i>
+      <p >Tin học</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-camera"></i>
+      <p >Nhiếp ảnh</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-rocket"></i>
+      <p >Khởi nghiệp</p>
+    </div>
+ 
+  </div>
+  <div class="row list_service_row">
+  
+    <div class="col-sm-4 col-lg-2 list_service_content_1"id="textimage2">
+      <i class="fa fa-shopping-cart"></i>
+      <p >Bán hàng</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-code"></i>
+      <p >CNTT</p>
+      
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-heartbeat"></i>
+      <p >Y tế</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa fa-cutlery"></i>
+      <p >Nấu ăn</p>
+    </div>
+    <div class="col-sm-4 col-lg-2 list_service_content_1_2"id="textimage2">
+      <i class="fa-solid fa-computer"></i>
+      <p >AI</p>
+    </div>
+
+  </div>
+<!--solution-->
+  <h3 style="font-weight:700;text-align:center;margin-top:3%">CÁC GIẢI PHÁP TỪ SMCS</h3>
+  <div class="row"style="margin-top:3%;margin-left:10%; margin-right:5%">
+        <div style="margin-top:20px;margin-bottom:10px"class="col-sm-12 col-lg-6">
+            <a href=""style="color:black;text-decoration:none">
+            <div class="card" style="width: 100%;">
+              <div style="box-shadow: 2px 2px 2px #999999;border-radius: 10px;">
+                <img style="width:100%;height:350px"class="card-img-top" src="image_1.jpg" alt="Card image cap">
+
+                <div class="card-body">
+                     <hr style="color:black;text-align: center;"  width="100%"  />
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #000;">Blockchain Course</p>  
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #C0C0C0;">Thiết kế học phần dựa trên chuẩn đầu ra</p>  
+                </div>
+              </div>
+             </div>
+             </a>
+        </div>
+         <div style="margin-top:20px;margin-bottom:10px"class="col-sm-12 col-lg-6">
+            <a href=""style="color:black;text-decoration:none">
+            <div class="card" style="width: 100%;">
+              <div style="box-shadow: 2px 2px 2px #999999;border-radius: 10px;">
+                <img style="width:100%;height:350px"class="card-img-top" src="image_2.jpg" alt="Card image cap">
+
+                <div class="card-body">
+                     <hr style="color:black;text-align: center;"  width="100%"  />
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #000;">Blockchain Course</p>  
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #C0C0C0;">Chuyển đổi số hoàn toàn trong phương pháp dạy học trực tuyến</p>  
+                </div>
+              </div>
+             </div>
+             </a>
+        </div>
+   </div>
+
+
+<!-- expert-->
+  <h3 style="text-align:center;margin-top:5%">ĐỘI NGŨ CHUYÊN GIA</h3>
+  <div class="row"style="margin-top:3%;margin-left:4%;width:100%">
+         <div style="margin-top:20px;margin-bottom:10px;"class="col-sm-10 col-lg-4">
+            <a href=""style="color:black;text-decoration:none">
+            <div class="card" style="width: 70%;margin-left:5%"><!--để % dễ responsive-->
+              <div style="box-shadow: 2px 2px 2px #999999;border-radius: 10px;">
+                <img style="width:100%;height:200px;border-radius: 100%"class="card-img-top" src="https://st.quantrimang.com/photos/image/072015/22/avatar.jpg" alt="Card image cap">
+
+                <div class="card-body">
+                     <hr style="color:black;text-align: center;"  width="100%"  />
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #000;">Vũ Ngọc Huy</p>  
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #C0C0C0;">Blockchain Developer</p>  
+                     <button type="button" class="btn btn-primary btn-lg"style="margin-left:5%">
+                      See profile
+                     </button>
+                </div>
+              </div>
+             </div>
+             </a>
+        </div>
+         <div style="margin-top:20px;margin-bottom:10px;"class="col-sm-10 col-lg-4">
+            <a href=""style="color:black;text-decoration:none">
+            <div class="card" style="width: 70%;margin-left:5%"><!--để % dễ responsive-->
+              <div style="box-shadow: 2px 2px 2px #999999;border-radius: 10px;">
+                <img style="width:100%;height:200px;border-radius: 100%"class="card-img-top" src="https://st.quantrimang.com/photos/image/072015/22/avatar.jpg" alt="Card image cap">
+
+                <div class="card-body">
+                     <hr style="color:black;text-align: center;"  width="100%"  />
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #000;">Vũ Tuấn Anh</p>  
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #C0C0C0;">Blockchain Developer</p>  
+                     <button type="button" class="btn btn-primary btn-lg"style="margin-left:5%">
+                      See profile
+                     </button>
+                </div>
+              </div>
+             </div>
+             </a>
+        </div>
+         <div style="margin-top:20px;margin-bottom:10px;"class="col-sm-10 col-lg-4">
+           <a style="color:black;text-decoration:none">
+            <div class="card" style="width: 70%;margin-left:5%"><!--để % dễ responsive-->
+                <div style="box-shadow: 2px 2px 2px #999999;border-radius: 10px;">
+                <img style="width:100%;height:200px;border-radius: 100%"class="card-img-top" src="https://st.quantrimang.com/photos/image/072015/22/avatar.jpg" alt="Card image cap">
+                <div class="card-body">
+                     <hr style="color:black;text-align: center;"  width="100%"  />
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #000;">Đỗ Đình Hào</p>
+                     <p class="card-text"style="text-align:center;text-shadow: 1px 1px 1px #C0C0C0;">Fullstack Developer</p>
+                     <button type="button" class="btn btn-primary btn-lg"style="margin-left:5%">
+                      See profile
+                     </button>
+                </div>
+                </div>
+             </div>
+           </a>
+        </div>
+  </div>
+
+<!--footer-->
+<!--Trở thành giảng viên -->
+<img class="footer_first"style="height:300px;margin-top:5%;width:105%"src="https://cdn.pixabay.com/photo/2017/01/10/01/32/study-1968077__340.jpg">
+<div class="footer_first"style="background-color:rgba(13, 100, 213, 0.682);height:300px;margin-top:-300px;width:100%">
+  <p style="font-weight:500;text-align:center;font-size:35px;color:white">Trở thành giảng viên SMCS</p>
+  <p style="font-weight:200;text-align:center;margin-top:1.5%;font-size:15px;color:white">Hơn 10000 giảng viên đã có khóa học trên SMCS</p>
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"style="color:white;border-color:#B0E0E6;margin-left:45%">Đăng ký ngay</button>
+</div>
+
+
+
+
+<!--thành phần cố đinh chuông, tin nhắn-->
+    <img id="textimage3" class="sticky-top"style="position:fixed;left:3%;top:85%;width:50px;height:50px;color:rgba(32,90,167,0.9)"src="https://webpush.vn/assets/images/favicon.png">
+    <img id="textimage3" class="sticky-top"style="border-radius:100%;background-color:rgba(32,90,167,0.9);position:fixed;left:95%;top:85%;width:50px;height:50px;color:rgba(32,90,167,0.9)"src=" https://fchat.vn/assets/images/fchat-icon.png">
+
+  </body>
+</html>

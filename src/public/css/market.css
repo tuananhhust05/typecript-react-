@@ -1,0 +1,257 @@
+
+      /*css menu-items ( menu ẩn)*/
+      ul{
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+      }
+      
+      /*active phải viết liền*/
+      /*phím đóng mở*/
+      .menu-bar-item-header{  /*cho 1 phần tử span bên trong menu-bar ra giứã theo trục ngang*/
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        float:left;
+        margin-top:15px;
+       
+      }
+      
+      .menu-bar-item-header span{
+        display:block; /*xuống dòng*/
+        height:2px;
+        width:40px;
+        background-color: black;
+        position:relative;/*nomal*/
+        cursor:pointer;
+      }
+      
+      /*tạo phím chuyển đổi*/
+      /*xong sang phần js*/
+      /*tư duy; thanh bên trên quay 45 độ; thanh bên dưới quay 45 độ; thanh ở giữa sẽ biến mất*/
+      .menu-bar-item-header.active span{
+      background-color: white; 
+      }
+      
+      .menu-bar-item-header.active span::before{ 
+        transform:rotate(-135deg); /*quay -45 độ*/
+      }
+      
+      .menu-bar-item-header.active span::after{ 
+        transform:rotate(135deg); /*quay 45 độ*/
+      }
+      /*active phần đóng mở menu items*/
+      .menu-bar-item-header.active{
+        position:fixed;
+        top:50px;
+        left:0;
+        z-index:1; /*giúp menu bar nằm ở trên và không bị biến mất */
+        transform:translateX(300px); /*dịch chuyển theo chiều âm trục x; dịch vào trong*/
+        transition:all 0.3s ease; /*điều chỉnh tốc độ*/
+      }
+      
+      /*tạo ký tự 3 gạch menubar*/
+      .menu-bar-item-header span::before{ /* bổ sung vào sau thẻ span*/
+        height:100%;
+        width:100%;  /*ăn theo thằng thẻ cha span*/
+        content:"";
+        display:block;
+        position:absolute;
+        transform:translateY(-10px); /*dịch chuyển theo chiều y*/
+        background-color: black;
+        /*set thời gian chuyển đổi thuộc tính*/
+        transition:all 0.3s ease;
+      }
+      .menu-bar-item-header span::after{ /* bổ sung vào sau thẻ span*/
+        height:100%;
+        width:100%;  /*ăn theo thằng thẻ cha span*/
+        content:"";
+        display:block;
+        position:absolute;
+        transform:translateY(10px); /*dịch chuyển theo chiều y*/
+        background-color: black;
+        /*set thời gian chuyển đổi thuộc tính*/
+        transition:all 0.3s ease;
+      }
+      
+      /*Phần menu trên header*/
+      /*ảnh hưởng active nữa, không cho thẻ cha vào đc */
+      /*đã xong cho thằng menu-item đi từ trái qua*/
+      .menu-items{ /* css cho  thằng con của top; nhớ là phải có quan hệ cha con */
+      position: fixed;
+      width:350px;
+      height:100 vh;
+      background-color: white;
+      left:0;
+      top:3.5%;
+      border-radius: 10px;
+      box-shadow: 3px 3px 3px #999999;
+      padding:100px 50px;
+      opacity: 1 !important;
+      transform:translateX(-100%); /* để phần menu bị ẩn hoàn toàn*/
+      }
+      .menu-items.active{  /*muốn hoạt động được thì cần phải viết liền*/
+      transform:translateX(0%); /*khi thêm active thì transform là 0*/
+      transition:all 0.3s ease; /*điều chỉnh tốc độ*/
+      }
+      .menu-items a{
+        color: black;
+        line-height: 40px;
+        font-size:15px;
+        text-decoration: none;
+        border-radius:5px;
+      }
+      .menu-item{
+        border-radius: 5px;
+        padding-left:5px;
+      }
+      .menu-item:hover{
+        background: #E0FFFF;
+        transform:rotate(360deg);
+        transition:all 0.3s ease;
+      }
+      
+      
+      
+      /*slide*/
+      #decorateslide{
+        width:300px;
+        height:200px;
+        position:absolute;
+        top:57%;
+        left:50.75%;
+      }
+      /*slide hover*/
+       
+        #listmonhoc{display:none;}
+        #openlistmonhoc:hover #listmonhoc{ 
+          display:block;
+          transition:all 3s ease;
+        }
+        
+        #monhoc:hover{
+        background-color: #DCDCDC; cursor:pointer;
+        }
+        #listmonhoc2{display:none;}
+        #openlistmonhoc2:hover #listmonhoc2{ display:block};
+        
+        #openlistmonhoc:hover #listmonhoc{ 
+          display:block;
+          transition:all 3s ease;
+        }
+        #Loaisanpham:hover{ background-color: azure;cursor:pointer}
+        li { 
+         list-style-type: none; 
+        }
+        li:hover{background-color:#DCDCDC}
+      /* gain_your_pupose */
+      #textimage:hover{
+        box-shadow: 15px 10px 10px #87CEFA;
+        border-radius:10px;
+        color:red;
+      }
+      .gain_your_pupose_title{
+        margin-left:6.5%;margin-top:5%;font-size:25px !important;
+      }
+      .gain_your_pupose_row{
+        margin-left:6.5%;margin-top:2%;
+      }
+      .gain_your_pupose_title_img1{
+        height:300px;margin-left:-10px;border-radius:10px;box-shadow: 2px 2px 2px #999999;cursor:pointer;
+      }
+      .gain_your_pupose_content1{
+        margin-left:-10px;border-radius:10px;display:inline-block;margin-top:-50.1%;position:absolute;width:600px;height:300px;background-color:rgba(135, 138, 143, 0.597);
+      }
+      .gain_your_pupose_content1_1{
+        margin-top:40%;margin-left:1%;
+      }
+      .gain_your_pupose_content1_1 img{
+        background-color:#87CEFA;display:inline-block;border-radius:8px;padding:10px;
+      }
+      .gain_your_pupose_content1_1 h5{
+        display:inline-block;color:white;
+      }
+      .next_content{
+        margin-left:45%;margin-top:1%;
+      }
+      
+      /*list_service*/
+      #textimage2:hover{
+        box-shadow: 5px 5px 5px #87CEFA!important;
+        border-radius:10px;
+        color:red;}
+      .list_service_row{
+        width:90%;margin-left:11.5%;margin-top:5%;
+      }
+      .list_service_content_1{
+        display:block;cursor:pointer;border-radius:10px;border: 1px solid #DCDCDC;box-shadow: 2px 2px 2px #999999;background-color:white;height:80px;width:13%;
+      }
+      .list_service_content_1 i{
+        font-size:40px;margin-left:35%;margin-top:10%;
+      }
+      .list_service_content_1 p{
+        text-align:center;
+      }
+      .list_service_content_1_2{
+        display:block;cursor:pointer;border-radius:10px;border: 1px solid #DCDCDC;box-shadow: 2px 2px 2px #999999;background-color:white;height:80px;width:13%;margin-left:5%;
+      }
+      .list_service_content_1_2 i{
+        font-size:40px;margin-left:35%;margin-top:10%;
+      }
+      .list_service_content_1_2 p{
+        text-align:center;
+      }
+      
+      /*footer*/
+      #textimage3:hover{
+        box-shadow: 5px 5px 5px #87CEFA!important;
+        border-radius:100%;
+        color:red;
+        cursor:pointer;
+      }
+      
+      /* responsive*/
+      @media (max-width: 1490px) {
+        .gain_your_pupose_title{
+           display:none;
+        }
+        .gain_your_pupose_row{
+            display:none;
+        }
+        #show_slide{
+            margin-left:25%;
+        }
+      }
+        @media(max-width:980px){
+            #show_slide{
+                margin-left:0%;
+                width:100%;
+            }
+            .list_service_row{
+               display:none;
+            }
+        }
+        @media (max-width: 601px) {
+            .list_service_row{
+               display:none;
+            }
+            .list_service_content_1{
+                display:none;
+            }
+        }
+        @media (max-width: 361px) {
+            .sticky-top{
+                width:135%;
+            }
+            footer{
+                width:135%;
+            }
+            .footer_first{
+                width:135%;
+            }
+            .p-footer{
+                font-size:10px;
+            }
+        }
+      
